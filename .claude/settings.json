@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "_comment_perfil": "PERFIL OPUS-ONLY — Opus 4.8 em tudo, janela 1M (incluso no Max 20x, zero créditos). Usar LONGE do limite. Sem CLAUDE_CODE_DISABLE_1M_CONTEXT (proposital): e o que deixa o Opus subir pra 1M.",
+  "model": "opus",
+  "effortLevel": "max",
+  "env": {
+    "CLAUDE_CODE_SUBAGENT_MODEL": "opus",
+    "CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING": "1",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-4-8"
+  },
+  "permissions": {
+    "_comment": "Permissoes do projeto - Flutter/Dart (frank_karaoke)",
+    "defaultMode": "plan",
+    "allow": [
+      "Read",
+      "Edit",
+      "Write",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git show:*)",
+      "Bash(git branch:*)",
+      "Bash(git fetch:*)",
+      "Bash(git pull:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(flutter analyze:*)",
+      "Bash(flutter test:*)",
+      "Bash(flutter doctor:*)",
+      "Bash(flutter devices:*)",
+      "Bash(flutter pub get:*)",
+      "Bash(flutter pub outdated:*)",
+      "Bash(flutter build apk:*)",
+      "Bash(flutter run:*)",
+      "Bash(dart analyze:*)",
+      "Bash(dart format:*)",
+      "Bash(dart fix --dry-run:*)",
+      "Bash(dart pub get:*)",
+      "Bash(dart run build_runner:*)",
+      "Bash(adb devices:*)"
+    ],
+    "deny": [
+      "Read(./android/key.properties)",
+      "Read(./android/**/*.jks)",
+      "Read(./android/**/*.keystore)",
+      "Read(./**/.env)",
+      "Bash(rm -rf:*)",
+      "Bash(git push --force:*)",
+      "Bash(git push -f:*)",
+      "Bash(git reset --hard:*)",
+      "Bash(git clean -fd:*)",
+      "Bash(curl * | sh:*)",
+      "Bash(curl * | bash:*)",
+      "Bash(wget * | sh:*)"
+    ],
+    "ask": [
+      "Bash(sudo:*)",
+      "Bash(flutter pub upgrade:*)",
+      "Bash(flutter pub add:*)",
+      "Bash(flutter clean:*)",
+      "Bash(dart pub upgrade:*)"
+    ]
+  }
+}

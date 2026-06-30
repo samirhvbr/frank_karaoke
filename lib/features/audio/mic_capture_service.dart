@@ -36,6 +36,21 @@ class MicCaptureService {
           // Keep recording even when other audio sources play.
           // Default 'pause' stops the mic when the webview video starts.
           audioInterruption: AudioInterruptionMode.none,
+          // iOS: keep the YouTube webview audio playing while we record and
+          // route output to the loud speaker so the mic picks up the room.
+          // mixWithOthers is the key flag — without it, activating the
+          // playAndRecord session interrupts the webview's playback (the same
+          // audio-focus fight handled on Android via AudioInterruptionMode).
+          // Ignored on Android. echoCancel/noiseSuppress above stay off so the
+          // speaker bleed the scoring relies on is preserved.
+          iosConfig: IosRecordConfig(
+            categoryOptions: [
+              IosAudioCategoryOption.mixWithOthers,
+              IosAudioCategoryOption.defaultToSpeaker,
+              IosAudioCategoryOption.allowBluetooth,
+              IosAudioCategoryOption.allowBluetoothA2DP,
+            ],
+          ),
         ),
       );
 

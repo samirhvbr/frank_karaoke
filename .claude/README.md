@@ -1,20 +1,22 @@
-# Configuração Claude Code — frank_karaoke (fork)
+# Claude Code configuration — frank_karaoke (fork)
 
-## Modelo
-`opus` (Opus 4.8) em tudo, com janela de **1M** de contexto. Subagents também em Opus.
+## Model
+The user's choice, made per session with `/model`; subagents inherit the
+session's model. This repository sets none of it — `.claude/settings.json`
+carries no model key and no model environment variable (repodocs ADR-027).
 
 ## Effort
-`max` + adaptive thinking off (raciocínio profundo sempre).
+`max` + adaptive thinking off (deep reasoning at all times).
 
-## Permissões críticas (Flutter/Dart)
-- `flutter analyze` / `flutter test` liberados — **sempre validar antes de "done"**
-  (regra do `../CLAUDE.md`: verificar com analyze + test + device antes de concluir).
-- `git push --force`, `git reset --hard`, `git clean -fd` **bloqueados** — proteção do histórico.
-- Leitura de segredos de assinatura Android **bloqueada** (`android/key.properties`, `*.jks`, `*.keystore`).
-- Mexer em dependências em modo `ask` — `flutter pub upgrade` / `pub add` / `pub upgrade` pedem confirmação.
-- `defaultMode: plan` — Claude planeja antes de editar.
+## Critical permissions (Flutter/Dart)
+- `flutter analyze` / `flutter test` allowed — **always validate before saying "done"**
+  (rule from `../CLAUDE.md`: check with analyze + test + device before concluding).
+- `git push --force`, `git reset --hard`, `git clean -fd` **blocked** — history protection.
+- Reading Android signing secrets **blocked** (`android/key.properties`, `*.jks`, `*.keystore`).
+- Touching dependencies is in `ask` mode — `flutter pub upgrade` / `pub add` / `pub upgrade` require confirmation.
+- `defaultMode: plan` — Claude plans before editing.
 
-## Regras do projeto (resumo de `../CLAUDE.md`)
-- **Android-only**: sem suporte a desktop Linux (WebView + mic são específicos de Android).
-- **Execução em fases**: máx. 5 arquivos por fase; verificar antes da próxima.
-- **Pesquisar antes de implementar**: para features não triviais, apresentar plano antes de codar.
+## Project rules (summary of `../CLAUDE.md`)
+- **Android-only**: no Linux desktop support (WebView + mic are Android-specific).
+- **Phased execution**: max. 5 files per phase; verify before the next one.
+- **Research before implementing**: for non-trivial features, present a plan before coding.

@@ -38,24 +38,19 @@
       "Read(./android/key.properties)",
       "Read(./android/**/*.jks)",
       "Read(./android/**/*.keystore)",
-      "Read(./**/.env)",
+      "Read(./**/.env)"
+    ],
+    "ask": [
+      "Bash(sudo:*)",
       "Bash(rm -rf:*)",
-      "Bash(git push --force:*)",
-      "Bash(git push -f:*)",
-      "Bash(git push * --force*)",
-      "Bash(git reset --hard:*)",
-      "Bash(git clean -fd:*)",
+      "Bash(flutter pub upgrade:*)",
+      "Bash(flutter pub add:*)",
+      "Bash(flutter clean:*)",
+      "Bash(dart pub upgrade:*)",
       "Bash(curl * | sh:*)",
       "Bash(curl * | bash:*)",
       "Bash(wget * | sh:*)",
       "Bash(wget * | bash:*)"
-    ],
-    "ask": [
-      "Bash(sudo:*)",
-      "Bash(flutter pub upgrade:*)",
-      "Bash(flutter pub add:*)",
-      "Bash(flutter clean:*)",
-      "Bash(dart pub upgrade:*)"
     ]
   }
 }
